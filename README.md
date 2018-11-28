@@ -6,6 +6,13 @@
 |            Gerenciador de credenciais SSH           |
 |     (c) William Costa - william@wapstore.com.br     |
  -----------------------------------------------------
+ Menu principal:
+ 1 - Conectar a um cliente existente
+ 2 - Gravar um novo cliente
+ 3 - Excluir cliente
+ 0 - Sair
+
+ Digite a opção desejada:
 ```
 
 
