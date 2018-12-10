@@ -34,7 +34,9 @@ menu(){
   echo -n "Digite a opção desejada:"
   read opcao
 
-  if [ "$opcao" -eq "0" ]; then
+  if [ "$opcao" = "exit" ]; then
+    echo "Bye"
+  elif [ "$opcao" -eq "0" ]; then
     echo "Bye"
   elif [ "$opcao" -eq "1" ]; then
     conectar
@@ -70,7 +72,9 @@ conectar(){
  echo 
  echo -n "Digite o número do cliente (0 para voltar ao menu): "
  read linha
- if [ "$linha" -eq "0" ]; then
+ if [ "$linha" = "exit" ]; then
+  echo "Bye"
+ elif  [ "$linha" -eq "0" ]; then
   menu
  else
   for line in $(cat ~/.wssh/hosts.w);
@@ -97,7 +101,9 @@ gravar(){
  echo "Novo cliente"
  echo -n "Digite o nome do novo cliente (0 para voltar ao menu): ";
  read nome
- if [ "$nome" = "0" ]; then
+ if [ "$nome" = "exit" ]; then
+  echo "Bye"
+ elif [ "$nome" = "0" ]; then
   menu
  else
   echo -n "Digite o host: ";
@@ -123,7 +129,9 @@ excluir(){
  echo
  echo -n "Digite o número do cliente a ser excluído (0 para voltar ao menu): "
  read linha
- if [ "$linha" -eq "0" ]; then
+ if [ "$linha" = "exit" ]; then
+   echo "Bye"
+ elif  [ "$linha" -eq "0" ]; then
    menu
  else
    echo "Deseja realmente excluir o cliente "$linha"? (s/n)"
