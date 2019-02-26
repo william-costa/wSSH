@@ -23,7 +23,7 @@ header(){
 
 # Função responsável por montar e gerenciar as opções do menu
 menu(){
-  opcao = ""
+  opcao=""
   header
   echo "Menu principal:"
   echo "1 - Conectar a um cliente existente";
@@ -77,7 +77,14 @@ conectar(){
  elif  [ "$linha" -eq "0" ]; then
   menu
  else
-  for line in $(cat ~/.wssh/hosts.w);
+  conectarClienteLinha $linha;
+ fi
+}
+
+# Função responsável por conectar um cliente de uma linha
+conectarClienteLinha(){
+linha=$1
+ for line in $(cat ~/.wssh/hosts.w);
   do
     auxLinha=`expr $auxLinha + 1`
     if [ "$auxLinha" -eq "$linha" ]; then
@@ -92,7 +99,6 @@ conectar(){
     fi
   done
   conectar
- fi
 }
 
 # Função responsável por gravar um novo cliente
@@ -155,6 +161,14 @@ verificarArquivoHost(){
  fi
 }
 
+
 verificarArquivoHost
-menu
+
+
+if [ $# -lt 1 ]; then
+   menu
+else
+   conectarClienteLinha $1
+fi
+
 

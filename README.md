@@ -35,6 +35,11 @@ chmod +x wSSH.sh
 ./wSSH.sh
 ```
 
+**Conecte-se diretamente a um SSH cadastrado**
+Se você conhece o ID do cliente cadastrado (para verificar acesse a opção 1 e veja o ID de cada SSH cadastrado), basta chamar o script passando o ID como argumento:
+```
+./wSSH.sh 10
+```
 ____
 
 Melhorias são bem-vindas!
