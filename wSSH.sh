@@ -13,11 +13,11 @@ port=""
 # Função responsável por montar o cabeçalho
 header(){
  clear
- echo " -----------------------------------------------------"
- echo "|                      wSSH v0.1                      |"
- echo "|            Gerenciador de credenciais SSH           |"
- echo "|     (c) William Costa - william@wapstore.com.br     |"
- echo " -----------------------------------------------------"
+ echo "\033[0;32m -----------------------------------------------------"
+ echo "|                      \033[1;33m wSSH v0.1 \033[0;32m                    |"
+ echo "|            \033[0m Gerenciador de credenciais SSH \033[0;32m         |"
+ echo "|     \033[0m (c) William Costa - william@wapstore.com.br \033[0;32m   |"
+ echo " ----------------------------------------------------- \033[0m"
 }
 
 
