@@ -69,7 +69,7 @@ conectar(){
  listarClientes
  auxLinha=`expr 0`
  linha=`expr 0`
- echo 
+ echo
  echo -n "Digite o número do cliente (0 para voltar ao menu): "
  read linha
  if [ "$linha" = "exit" ]; then
@@ -89,10 +89,12 @@ linha=$1
     auxLinha=`expr $auxLinha + 1`
     if [ "$auxLinha" -eq "$linha" ]; then
       clear
+      name=$(echo $line | awk -F "," '{print $1}');
       host=$(echo $line | awk -F "," '{print $2}');
       port=$(echo $line | awk -F "," '{print $3}');
       pass=$(echo $line | awk -F "," '{print $4}');
       user=$(echo $line | awk -F "," '{print $5}');
+      echo "wSSH Conectando "$name"("$host")..."
       eval "sshpass -p '"$pass"' ssh -oStrictHostKeyChecking=no "$user"@"$host" -p "$port
       echo -n "Pressione qualquer tecla para voltar ao wSSH..."
       read linha
@@ -170,5 +172,3 @@ if [ $# -lt 1 ]; then
 else
    conectarClienteLinha $1
 fi
-
-
